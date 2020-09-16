@@ -13,6 +13,11 @@ public class DemoController {
         return "index everyone can see";
     }
 
+    @RequestMapping("/hellos/hello")
+    public String hello() {
+        return "hello everyone can see";
+    }
+
     @RequestMapping("/users/user")
     public String customer() {
         return "only commonuser can see";
