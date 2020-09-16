@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: keycloak-backend
+server:
+  port: 8082
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: myRealm
+  resource: spring-boot-demo
+  ssl-required: external
+  credentials:
+    secret: 5dff76f0-53a9-4989-b658-41aea5305869
+  cors: true
+  bearer-only: true
+  security-constraints:
+    - authRoles:
+        - USER
+      securityCollections:
+        - name: common user
+          patterns:
+            - /users/*
+    - authRoles:
+        - ADMIN
+      securityCollections:
+        - name: admin user
+          patterns:
+            - /admins/*

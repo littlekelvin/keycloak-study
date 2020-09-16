@@ -1,0 +1,7 @@
+.idea
+log/
+target/
+keycloak-backend/target/
+vue-fontend/node_modules/
+.mvn
+*.iml
