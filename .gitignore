@@ -3,5 +3,6 @@ log/
 target/
 keycloak-backend/target/
 vue-fontend/node_modules/
+vue-fontend/app/node_modules/
 .mvn
 *.iml
