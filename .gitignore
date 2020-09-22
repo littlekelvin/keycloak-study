@@ -4,5 +4,6 @@ target/
 keycloak-backend/target/
 vue-fontend/node_modules/
 vue-fontend/app/node_modules/
+vue-fontend/public/
 .mvn
 *.iml

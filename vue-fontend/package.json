@@ -1,0 +1,32 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "kelvin",
+  "license": "ISC",
+  "scripts": {
+    "start": "node app.js",
+    "vue": "node app-vue.js",
+    "koa": "node app-koa.js"
+  },
+  "dependencies": {
+    "@anthinkingcoder/keycloak-koa-connect": "^1.0.5",
+    "body-parser": "^1.13.3",
+    "cors": "^2.8.1",
+    "express": "^4.13.3",
+    "express-session": "^1.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "keycloak-connect": "11.0.2",
+    "koa": "^2.7.0",
+    "koa-ejs": "^4.2.0",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.12.0",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "keycloak-request-token": "^0.1.0",
+    "keycloak-client-registration": "^0.1.0"
+  }
+}
