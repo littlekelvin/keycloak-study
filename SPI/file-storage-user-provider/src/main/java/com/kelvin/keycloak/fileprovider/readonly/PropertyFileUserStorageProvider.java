@@ -1,4 +1,4 @@
-package com.kelvin.keycloak.fileprovider;
+package com.kelvin.keycloak.fileprovider.readonly;
 
 import org.jboss.logging.Logger;
 import org.keycloak.component.ComponentModel;
@@ -87,7 +87,7 @@ public class PropertyFileUserStorageProvider implements UserStorageProvider, Use
 
     @Override
     public boolean isValid(RealmModel realm, UserModel user, CredentialInput credentialInput) {
-        log.info("#isValid#");
+        log.info("#isValid111#");
         if (!supportsCredentialType(credentialInput.getType())) {
             return false;
         }
@@ -102,7 +102,7 @@ public class PropertyFileUserStorageProvider implements UserStorageProvider, Use
     @Override
     public boolean updateCredential(RealmModel realm, UserModel user, CredentialInput input) {
         if (PasswordCredentialModel.TYPE.equals(input.getType())) {
-            throw new ReadOnlyException("user is read only for this update");
+            throw new ReadOnlyException("user is read only for this update111");
         }
         return false;
     }

@@ -1,1 +1,1 @@
-com.kelvin.keycloak.fileprovider.PropertyFileUserStorageProviderFactory
+com.kelvin.keycloak.fileprovider.writable.PropertyFileUserStorageProviderFactory
