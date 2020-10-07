@@ -80,7 +80,7 @@ public class JpaExampleUserStorageProviderRepository implements UserStorageProvi
 
     private EntityManagerFactory initEntityManagerFactory(MultivaluedHashMap<String, String> config) {
         Map<String, String> dbConfigMap = new HashMap<>();
-        dbConfigMap.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
+        dbConfigMap.put("hibernate.connection.driver_class", "org.mariadb.jdbc.Driver");
         dbConfigMap.put("hibernate.connection.url",
                 String.format("jdbc:mysql://%s:%s/%s",
                         config.getFirst(DB_HOST_KEY),
@@ -88,6 +88,7 @@ public class JpaExampleUserStorageProviderRepository implements UserStorageProvi
                         config.getFirst(DB_DATABASE_KEY)));
         dbConfigMap.put("hibernate.connection.username", config.getFirst(DB_USERNAME_KEY));
         dbConfigMap.put("hibernate.connection.password", config.getFirst(DB_PASSWORD_KEY));
+        dbConfigMap.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         dbConfigMap.put("hibernate.show-sql", "true");
         dbConfigMap.put("hibernate.hbm2ddl.auto", "none");
         dbConfigMap.put("hibernate.connection.autocommit", "true");
