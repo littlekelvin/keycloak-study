@@ -6,7 +6,7 @@
   "author": "kelvin",
   "license": "ISC",
   "scripts": {
-    "start": "node app.js",
+    "start": "node app-express.js.js",
     "vue": "node app-vue.js",
     "koa": "node app-koa.js"
   },
@@ -17,6 +17,7 @@
     "express": "^4.13.3",
     "express-session": "^1.14.2",
     "jsonwebtoken": "^8.5.1",
+    "keycloak-admin": "^1.13.0",
     "keycloak-connect": "11.0.2",
     "koa": "^2.7.0",
     "koa-ejs": "^4.2.0",
