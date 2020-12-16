@@ -22,7 +22,7 @@ import java.util.Map;
 import static com.kelvin.jpastorage.constants.DBConnectionConstant.*;
 
 @Slf4j
-public class JpaExampleUserStorageProviderRepositoryWithPassword implements UserStorageProviderFactory<JpaExampleUserStorageWithoutPasswordProvider> {
+public class JpaExampleUserStorageProviderRepositoryWithoutPassword implements UserStorageProviderFactory<JpaExampleUserStorageWithoutPasswordProvider> {
 
     public static final String PERSISTEN_UNIT = "MYSQL_DS";
     private EntityManagerFactory entityManagerFactory;
@@ -80,7 +80,7 @@ public class JpaExampleUserStorageProviderRepositoryWithPassword implements User
 
     private EntityManagerFactory initEntityManagerFactory(MultivaluedHashMap<String, String> config) {
         Map<String, String> dbConfigMap = new HashMap<>();
-        dbConfigMap.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
+        dbConfigMap.put("hibernate.connection.driver_class", "org.mariadb.jdbc.Driver");
         dbConfigMap.put("hibernate.connection.url",
                 String.format("jdbc:mysql://%s:%s/%s",
                         config.getFirst(DB_HOST_KEY),

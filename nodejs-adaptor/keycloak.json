@@ -1,4 +1,4 @@
-{
+  {
   "realm": "myRealm",
   "auth-server-url": "http://localhost:8080/auth",
   "ssl-required": "external",

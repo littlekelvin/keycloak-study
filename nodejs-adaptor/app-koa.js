@@ -7,6 +7,7 @@ const static = require('koa-static')
 const mount = require('koa-mount')
 const keycloakConfig = require('./keycloak-config')
 const jwt = require('jsonwebtoken')
+const KeycloakAdmin = require('keycloak-admin')
 
 const app = new koa();
 const router = new Router();
@@ -71,5 +72,24 @@ app.use(mount('/auth', static(path.join(__dirname, 'views'))))
 app.listen(3002, () => {
     console.log('server started at port: ', 3002)
 });
+
+// const adminClient = new KeycloakAdmin()
+// const initAdminClient = async () => {
+//     await adminClient.auth({
+//         username: 'admin',
+//         password: 'admin',
+//         grantType: 'password',
+//         clientId: 'admin-cli',
+//     })
+//     adminClient.setConfig({
+//         realmName: 'nodejs'
+//     })
+// }
+//
+// setInterval(async () => {
+//     await initAdminClient()
+//     const users = await adminClient.users.find()
+//     console.log(users)
+// }, 8000)
 
 

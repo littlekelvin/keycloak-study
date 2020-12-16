@@ -9,6 +9,7 @@ import org.keycloak.credential.CredentialInputUpdater;
 import org.keycloak.credential.CredentialInputValidator;
 import org.keycloak.models.*;
 import org.keycloak.models.cache.CachedUserModel;
+import org.keycloak.models.cache.OnUserCache;
 import org.keycloak.models.credential.PasswordCredentialModel;
 import org.keycloak.storage.StorageId;
 import org.keycloak.storage.UserStorageProvider;
@@ -25,7 +26,8 @@ public class JpaExampleUserStorageProvider implements UserStorageProvider,
         UserRegistrationProvider,
         CredentialInputUpdater,
         CredentialInputValidator,
-        UserQueryProvider {
+        UserQueryProvider,
+        OnUserCache {
 
     private UserRepository userRepository;
     private ComponentModel model;
@@ -220,5 +222,10 @@ public class JpaExampleUserStorageProvider implements UserStorageProvider,
     @Override
     public List<UserModel> searchForUserByUserAttribute(String attrName, String attrValue, RealmModel realm) {
         return Collections.EMPTY_LIST;
+    }
+
+    @Override
+    public void onCache(RealmModel realm, CachedUserModel user, UserModel delegate) {
+        log.info("onCache: {} {}", user, delegate);
     }
 }

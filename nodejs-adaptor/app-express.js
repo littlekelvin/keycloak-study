@@ -5,6 +5,7 @@ const session = require('express-session')
 const KeycloakConnect = require('keycloak-connect')
 const keycloakConfig = require('./keycloak-config')
 const jwt = require('jsonwebtoken')
+const  router = express.Router();
 
 // keycloak
 const memoryStore = new session.MemoryStore();
@@ -26,17 +27,17 @@ app.use(keycloak.middleware({
 }));
 
 // api settings
-app.get('/service/public', function (req, res) {
+router.get('/service/public', (req, res) => {
     res.json({message: 'public'});
 });
-app.get('/service/secured', keycloak.protect('realm:USER'), function (req, res) {
+router.get('/service/secured', keycloak.protect('realm:USER'), function (req, res) {
     res.json({message: 'secured'});
 });
 
 const keycloakProtect = keycloak.protect()
-app.get('*', (req, resp, next) => {
+router.get('*', (req, resp, next) => {
     const originalUrl = req.originalUrl
-    if (originalUrl.indexOf('abc') > -1 || originalUrl === '/') {
+    if (originalUrl.indexOf('abc') > -1 || originalUrl === '/' || originalUrl.indexOf('favicon.ico') > -1) {
         return next()
     }
     return keycloakProtect(req, resp, next)
@@ -53,11 +54,13 @@ app.get('*', (req, resp, next) => {
     resp.cookie('user_id', userId, cookiesOption)
     return next()
 })
+
+app.use(router)
 // static resources
 app.use(express.static(path.join(__dirname, '/views')));
 
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log('Started at port 3001');
 });
 

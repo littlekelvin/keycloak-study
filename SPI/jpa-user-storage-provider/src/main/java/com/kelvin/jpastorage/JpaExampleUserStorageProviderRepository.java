@@ -88,7 +88,7 @@ public class JpaExampleUserStorageProviderRepository implements UserStorageProvi
                         config.getFirst(DB_DATABASE_KEY)));
         dbConfigMap.put("hibernate.connection.username", config.getFirst(DB_USERNAME_KEY));
         dbConfigMap.put("hibernate.connection.password", config.getFirst(DB_PASSWORD_KEY));
-        dbConfigMap.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        dbConfigMap.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
         dbConfigMap.put("hibernate.show-sql", "true");
         dbConfigMap.put("hibernate.hbm2ddl.auto", "none");
         dbConfigMap.put("hibernate.connection.autocommit", "true");
