@@ -39,7 +39,7 @@ class KeycloakHelperTest {
 
     @Test
     void getUserByUserNameAndEmail() {
-        List<UserRepresentation> users = keycloak.realm(REALM).users().search("maike"); // like username search
+        List<UserRepresentation> users = keycloak.realm(REALM).users().search("kelvin"); // like username search
         for (UserRepresentation user : users) {
             System.out.println(user.getId() + ":" + user.getUsername());
         }
